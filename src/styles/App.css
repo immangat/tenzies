@@ -45,3 +45,11 @@ main {
 .content--title{
   max-width: 100px;
 }
+
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .dies{
+    grid-template: 1fr 1fr 1fr 1fr 1fr/ 35% 35%;
+
+  }
+}
