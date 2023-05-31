@@ -1,0 +1,28 @@
+.die{
+    height: 100%;
+    width: 70%;
+    display: inline-block;
+    padding: 2%;
+    font-size: 45px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #e0dede;
+    cursor: pointer;
+}
+
+
+.die:hover {
+    height: 100%;
+    width: 70%;
+    background-color: pink;
+    display: inline-block;
+    padding: 2%;
+    font-size: 45px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.die--value{
+   
+}

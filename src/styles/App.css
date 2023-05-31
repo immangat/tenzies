@@ -1,0 +1,47 @@
+main {
+  height: 100%;
+  width: 100%;
+  background-color: #0B2434;
+  padding: 5%;
+ 
+}
+
+.content{
+  height: 100%;
+  width: 100%;
+  background-color: #F5F5F5;
+  border-radius: 10px; 
+  padding: 20px; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.dies{
+  flex-grow:1;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr/ 10% 10%;
+  gap:17px;
+  align-items: center;
+  justify-content: center;  
+ 
+}
+
+.die{
+  justify-self: center;
+}
+
+.rollButton{
+  border: none;
+  font-size: 20px;
+  padding: 0.5% 2%;
+  border-radius: 5px;
+  border-color: white;
+  background-color: #5035FF;
+  color: white;
+  cursor: pointer;
+}
+
+
+.content--title{
+  max-width: 100px;
+}
