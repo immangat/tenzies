@@ -1,4 +1,4 @@
-# Tenzies Game README
+# Tenzies Game
 
 Welcome to Tenzies, an engaging single-player dice game where the goal is to click and hold the dice to get the same number on all ten dice!
 
