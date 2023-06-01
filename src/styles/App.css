@@ -15,6 +15,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: row;
 }
 .dies{
   flex-grow:1;
@@ -22,7 +23,8 @@ main {
   grid-template: 1fr 1fr 1fr 1fr 1fr/ 10% 10%;
   gap:17px;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+  align-content: center;
  
 }
 
@@ -32,6 +34,19 @@ main {
 
 .rollButton{
   border: none;
+  font-size: 25px;
+  padding: 1% 5%;
+  border-radius: 5px;
+  border-color: white;
+  background-color: #5035FF;
+  color: white;
+  cursor: pointer;
+  margin-top: 4%;
+
+}
+
+.startGameButton{
+  border: none;
   font-size: 20px;
   padding: 0.5% 2%;
   border-radius: 5px;
@@ -39,8 +54,8 @@ main {
   background-color: #5035FF;
   color: white;
   cursor: pointer;
-}
 
+}
 
 .content--title{
   max-width: 100px;
@@ -48,8 +63,12 @@ main {
 
 
 @media screen and (min-width: 0px) and (max-width: 800px) {
+
+  .content{
+    flex-direction: column;
+  }
   .dies{
-    grid-template: 1fr 1fr 1fr 1fr 1fr/ 35% 35%;
+    grid-template: 70px 70px 70px 70px 70px/ 100px 100px;
 
   }
 }

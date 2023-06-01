@@ -7,6 +7,7 @@ import Confetti from 'react-confetti'
 function App() {
 
   const[winStatus, setWinStatus] = React.useState(false)
+  const[gameStart, setGameStart] = React.useState(false)
 
   function getRandomValue(){
     return Math.floor(Math.random() * 6) + 1
@@ -79,17 +80,22 @@ function App() {
       <div className = 'content' >
         <div className='content--title'>
         <h1>Tenzies</h1>
-      <p>Roll until all dice are the same. Click each die to freeze at its current value between rolls</p>
+        {!gameStart &&  <p>Roll until all dice are the same. Click each die to freeze at its current value between rolls</p>}
+     
         </div>
     
 
           < div className = 'dies' > 
-      {diceElements} 
+      { gameStart && diceElements} 
       </div> 
-      
-      <button className = 'rollButton'
+
+      {!gameStart && <button className = 'startGameButton'
+              onClick = {() => setGameStart(prev => !prev)}> Start Game 
+      </button> }
+      {gameStart && <button className = 'rollButton'
               onClick = {winStatus ? reset : rollDice}> {winStatus ? "New Game" : "Roll"} 
-      </button> 
+      </button> }
+      
       </div > 
       </main>
     );
