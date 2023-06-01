@@ -34,20 +34,20 @@ main {
 
 .rollButton{
   border: none;
-  font-size: 25px;
+  font-size: 40px;
   padding: 1% 5%;
   border-radius: 5px;
   border-color: white;
   background-color: #5035FF;
   color: white;
   cursor: pointer;
-  margin-top: 4%;
+
 
 }
 
 .startGameButton{
   border: none;
-  font-size: 20px;
+  font-size: 40px;
   padding: 0.5% 2%;
   border-radius: 5px;
   border-color: white;
