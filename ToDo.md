@@ -20,13 +20,13 @@ Welcome to Tenzies, an engaging single-player dice game where the goal is to cli
 
 ## Issues
 
-- [ ] **Issue 1**: Fix start game screen
-- [ ] **Issue 2**: Fix full screen layout
+- [x] **Issue 1**: Fix start game screen
+- [x] **Issue 2**: Fix full screen layout
 
 ## Milestones
 
-- [ ] **Milestone 1**: Basic Application that is nice to look at
-- [ ] **Milestone 2**: Some sort scoring system
+- [x] **Milestone 1**: Basic Application that is nice to look at
+- [ ] **Milestone 2**: Some sort of scoring system
 - [ ] **Milestone 3**: Connected to the database
 
 ## Notes
