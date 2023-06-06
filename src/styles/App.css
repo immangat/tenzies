@@ -20,7 +20,7 @@ main {
 .dies{
   flex-grow:1;
   display: grid;
-  grid-template: 1fr 1fr 1fr 1fr 1fr/ 10% 10%;
+  grid-template: 70px 70px 70px 70px 70px/ 100px 100px;
   gap:17px;
   align-items: center;
   justify-content: center;
