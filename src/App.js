@@ -8,6 +8,7 @@ function App() {
 
   const[winStatus, setWinStatus] = React.useState(false)
   const[gameStart, setGameStart] = React.useState(false)
+  const[scoreBoard, setScoreBoard] = React.useState({})
 
   function getRandomValue(){
     return Math.floor(Math.random() * 6) + 1
