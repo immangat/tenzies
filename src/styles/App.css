@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap');
+
 main {
   height: 100%;
   width: 100%;
   background-color: #0B2434;
   padding: 5%;
- 
+
+  font-family: 'Kanit', sans-serif;
 }
 
 .content{
@@ -11,14 +14,36 @@ main {
   width: 100%;
   background-color: #F5F5F5;
   border-radius: 10px; 
-  padding: 20px; 
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.content--title h1{
+  flex-grow: 1;
+  font-size: 40px;
+  margin: 0;
+}
+.content--title{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content--title p{
+  font-size: larger;
+  width: 250px;
+  margin-top: 115px;
+  text-align: justify;
 }
 .dies{
-  flex-grow:1;
+  width: fit-content; /* or set a specific width that matches the grid */
+  height: fit-content;
+
   display: grid;
   grid-template: 70px 70px 70px 70px 70px/ 100px 100px;
   gap:17px;
@@ -36,7 +61,7 @@ main {
   border: none;
   font-size: 40px;
   padding: 1% 5%;
-  border-radius: 5px;
+  border-radius: 20px;
   border-color: white;
   background-color: #5035FF;
   color: white;
@@ -49,7 +74,7 @@ main {
   border: none;
   font-size: 40px;
   padding: 0.5% 2%;
-  border-radius: 5px;
+  border-radius: 20px;
   border-color: white;
   background-color: #5035FF;
   color: white;

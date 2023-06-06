@@ -5,7 +5,7 @@ Welcome to Tenzies, an engaging single-player dice game where the goal is to cli
 
 ## Tasks
 
-- [ ] **Task 1**: Add dots to the dice
+- [x] **Task 1**: Add dots to the dice
 
 
 ## Features
