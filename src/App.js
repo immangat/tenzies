@@ -8,7 +8,16 @@ function App() {
 
     const [winStatus, setWinStatus] = React.useState(false)
     const [gameStart, setGameStart] = React.useState(false)
-    const [scoreBoard, setScoreBoard] = React.useState({})
+    const [scoreBoard, setScoreBoard] = React.useState(() => {
+        const score = JSON.parse(localStorage.getItem("score"))
+        return {
+            startTime: 0,
+            endTime: 0,
+            bestTime: score.bestTime,
+            numberOfRolls: 0,
+            bestRolls: score.bestRolls
+        }
+    })
 
     function getRandomValue() {
         return Math.floor(Math.random() * 6) + 1
@@ -26,18 +35,6 @@ function App() {
         }
         return dice
     }
-
-    function checkifWon() {
-        var isHeldCount = 0;
-        dice.forEach(die => {
-            if (die.isHeld) {
-                isHeldCount++
-            }
-        })
-
-        return isHeldCount === 10
-    }
-
 
     function changeHeld(dieKey) {
         setDice(prev => prev.map(prevDie => dieKey === prevDie.key ? {...prevDie, isHeld: !prevDie.isHeld} : prevDie))
@@ -71,6 +68,16 @@ function App() {
             isHeld={die.isHeld}
 
         />)
+
+
+    React.useEffect(() => {
+        const score = {
+            bestTime: scoreBoard.bestTime,
+            bestRolls: scoreBoard.bestRolls
+        }
+        localStorage.setItem("score", JSON.stringify(score))
+
+    }, [scoreBoard])
 
 
     return (
