@@ -10,14 +10,18 @@ function App() {
     const [gameStart, setGameStart] = React.useState(false)
     const [scoreBoard, setScoreBoard] = React.useState(() => {
         const score = JSON.parse(localStorage.getItem("score"))
+        const bestTime = score ? score.bestTime : 0
+        const bestRolls = score ? score.bestRolls : 0
         return {
             startTime: 0,
             endTime: 0,
-            bestTime: score.bestTime,
+            bestTime: bestTime,
             numberOfRolls: 0,
-            bestRolls: score.bestRolls
+            bestRolls: bestRolls
         }
     })
+
+    console.log(scoreBoard)
 
     function getRandomValue() {
         return Math.floor(Math.random() * 6) + 1
@@ -53,10 +57,21 @@ function App() {
     function rollDice() {
 
         setDice(prev => prev.map(die => die.isHeld ? die : {...die, value: getRandomValue()}))
+        setScoreBoard(prev => ({...prev, numberOfRolls : prev.numberOfRolls + 1}))
     }
 
 
     function reset() {
+        const score = JSON.parse(localStorage.getItem("score"))
+        const bestTime = score ? score.bestTime : 0
+        const bestRoll = score ? score.bestRolls : 0
+        setScoreBoard(prev => (
+            {
+                ...prev,
+                bestRolls: bestRoll,
+                bestTime : bestTime
+            }
+            ))
         setDice(generateRandomDice())
         setWinStatus(false)
     }
@@ -69,15 +84,35 @@ function App() {
 
         />)
 
+    function startGame(){
+        const date = new Date()
+        setGameStart(prev => !prev)
+        setScoreBoard(prev => (
+            {
+                ...prev,
+                startTime : date
+                
+            }
+            ))
+    }
+
 
     React.useEffect(() => {
-        const score = {
-            bestTime: scoreBoard.bestTime,
-            bestRolls: scoreBoard.bestRolls
-        }
-        localStorage.setItem("score", JSON.stringify(score))
 
-    }, [scoreBoard])
+        const date = new Date();
+        var secondsPassed = (Math.abs(date - scoreBoard.startTime)) / 1000;
+        var bestTime = scoreBoard.bestTime === 0 ? secondsPassed : secondsPassed < scoreBoard.bestTime ? secondsPassed : scoreBoard.bestTime
+        var numberOfRolls = scoreBoard.bestRolls === 0 ? scoreBoard.numberOfRolls : scoreBoard.numberOfRolls < scoreBoard.bestRolls ? scoreBoard.numberOfRolls : scoreBoard.bestRolls  
+        const score = {
+            bestTime: bestTime,
+            bestRolls: numberOfRolls
+        }
+        if(winStatus){
+            localStorage.setItem("score", JSON.stringify(score))
+        }
+
+
+    }, [winStatus])
 
 
     return (
@@ -104,7 +139,7 @@ function App() {
                 }
 
                 {!gameStart && <button className='startGameButton'
-                                       onClick={() => setGameStart(prev => !prev)}> Start Game
+                                       onClick={startGame}> Start Game
                 </button>}
                 {gameStart && <button className='rollButton'
                                       onClick={winStatus ? reset : rollDice}> {winStatus ? "New Game" : "Roll"}
